@@ -1,0 +1,40 @@
+<div class="login-container">
+  <div class="login-wrapper container">
+    <div class="login-form card">
+        <div class="heading">
+            <h1>Login</h1>
+        </div>
+      <div class="federal-login">
+        <p>Login with facebook or Google</p>
+        <div class="facebook">
+          <button class="btn waves-effect waves-light"><i class="material-icons left">favorite_border</i> Facebook</button>
+        </div>
+        <div class="google">
+          <button class="btn waves-effect waves-light"><i class="material-icons left">gps_fixed</i> Google</button>
+        </div>
+      </div>
+      <form class="form" novalidate [formGroup]="loginForm" (ngSubmit)="userLogin(loginForm.value)">
+        <p>Login with email and password</p>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" formControlName="email" type="email" placeholder="example@gmail.com" class="validate">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="password" formControlName="password" type="password" placeholder="E@hlk09Kj" class="validate">
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="submit-button">
+          <button class="btn waves-effect waves-light" type="submit">Login</button>
+          <span><a href="">Forgotten Password</a></span>
+        </div>
+        <div>
+          <a href="/sign_up">Sign Up</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="service-header blue">
+    <h1>What we do</h1>
+</div>
+<div class="service-container container">
+    <!-- <button class="btn" (click)="addData()">Add</button> -->
+  <div *ngFor="let service of service$ | async" class="service-item card">
+    <div class="image">
+        <img [src]="service.service_image" alt="" (click)="goToService(service.id, service.service_name)">
+    </div>
+    <div class="content">
+        <h1>{{service.service_name}}</h1>
+        <a class="btn waves-effect" (click)="goToService(service.id, service.service_name)">see</a>
+    </div>
+    <!-- <a href="/services/service">See</a> -->
+  </div>
+
+
+  <div class="service-item card">
+    <div class="image">
+        <img src="assets/images/event_security_small.jpg" alt="">
+    </div>
+    <div class="content">
+      <h1>Event Security</h1>
+    </div>
+  </div>
+  <div class="service-item card">
+      <div class="image">
+          <img src="assets/images/hotel_security_small.jpg" alt="">
+      </div>
+      <div class="content">
+          <h1>Retail Security</h1>
+      </div>
+  </div>
+  <div class="service-item card">
+      <div class="image">
+          <img src="assets/images/hospitality_security_small.jpg" alt="">
+      </div>
+      <div class="content">
+          <h1>Corporate Security</h1>
+      </div>
+  </div>
+  <div class="service-item card">
+      <div class="image">
+          <img src="assets/images/hospitality_security_small.jpg" alt="">
+      </div>
+      <div class="content">
+          <h1>Corporate Security</h1>
+      </div>
+  </div>
+</div>
+<div class="service-container container">
+  <!-- <a class="btn" href="/admin/services/new">New Service</a> -->
+    <div class="service-item red"></div>
+    <div class="service-item green"></div>
+    <div class="service-item amber"></div>
+    <div class="service-item blue"></div>
+  </div>
+
+  <app-news-base></app-news-base>

@@ -16,10 +16,10 @@ export class HomeComponent implements OnInit, OnDestroy {
       console.log(blogs['articles']);
     });
   }
-  slideInterval = window.setInterval(()=>{
+  slideInterval:any = window.setInterval(()=>{
     $('.carousel').carousel('next');
   }, 10000);
-  arrowInterval = setInterval(()=>{
+  arrowInterval:any = setInterval(()=>{
     let arrow = document.getElementById('home-arrow');
     arrow.style.top = "80%";
     arrow.style.transition = "1s";
@@ -37,6 +37,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy(){
     window.clearInterval(this.slideInterval);
-    // window.clearInterval(this.arrowInterval);
+    window.clearInterval(this.arrowInterval);
   }
 }

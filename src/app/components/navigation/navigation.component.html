@@ -13,9 +13,17 @@
           </div>
         </div>
         <div class="right-nav-content">
-            <span><a>Join</a></span>
-            <span>|</span>
-            <span><a>Login</a></span>
+   
+              <!-- <li><a (click)="goToDashboard()">Dashboard</a></li> -->
+              <!-- <span>|</span> -->
+              <span *ngIf="currentUser"><a (click)="goToDashboard()">Dashboard</a></span>
+              <span *ngIf="currentUser">|</span>
+              <span *ngIf="currentUser"><a (click)="signOut()">LogOut</a></span>
+              <!-- <li *ngIf="currentUser"><p class="dropdown-button" data-activates="account">Account<i class="material-icons right">arrow_drop_down</i></p></li> -->
+              <span *ngIf="!currentUser"><a (click)="goToLoginForm()">Login</a></span>
+    
+  
+
         </div>  
     </div>
   </div>
@@ -26,13 +34,14 @@
   <div class="nav-wrapper">
     <!-- <a href="#!" class="brand-logo">Soular</a> -->
     <ul class="right hide-on-med-and-down">
-      <li class="list-item"><a href="#about">Who We Are</a></li>
-      <li class="list-item"><a class="dropdown-button" data-activates="services" href="badges.html">What We Do <i class="material-icons right">arrow_drop_down</i></a></li>
-      <li class="list-item"><a href="#about">Career</a></li>
-      <li class="list-item"><a href="#about">Contact</a></li>
-      <li class="list-item"><a href="#about">News</a></li>
+      <li class="list-item"><a href="/about" routerLinkActive="active">Who We Are</a></li>
+      <li class="list-item"><a href="/services" routerLinkActive="active">What We Do</a></li>
+      <!-- <li class="list-item"><a class="dropdown-button" data-activates="services" href="/services">What We Do <i class="material-icons right">arrow_drop_down</i></a></li> -->
+      <li class="list-item"><a href="/career" routerLinkActive="active">Career</a></li>
+      <li class="list-item"><a href="/contact" routerLinkActive="active">Contact</a></li>
+      <li class="list-item"><a href="/news" routerLinkActive="active">News</a></li>
       <!-- Dropdown Trigger -->
-      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">What You Can Do<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a class="dropdown-button"  data-activates="dropdown1">What You Can Do<i class="material-icons right">arrow_drop_down</i></a></li>
     </ul>
   </div>
   </div>
@@ -47,9 +56,16 @@
 </ul>
 <!-- Dropdow for Services -->
 <ul id="services" class="dropdown-content">
-    <li><a href="#!">one</a></li>
+    <li><a href="#!">public sector security</a></li>
     <li><a href="#!">two</a></li>
     <li class="divider"></li>
     <li><a href="#!">three</a></li>
   </ul>
-
+<!-- Login links -->
+<ul id="account" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li><a (click)="goToDashboard()">Dashboard</a></li>
+    <li class="divider"></li>
+    <li><a (click)="signOut()">LogOut</a></li>
+  </ul>

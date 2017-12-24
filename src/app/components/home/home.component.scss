@@ -5,27 +5,27 @@
 .carousel{
     height: 645px;
     img{
-        height: 600px;
+        height: 500px;
     }
     .carousel-cover{
         position: absolute;
         top: 0;
         left: 0;
-        height: 600px;
+        height: 500px;
         width: 100%;
         margin: 0 auto;
-        background-color: rgba(112, 164, 235, 0.2);
+        background-color: rgba(112, 164, 235, 0.6);
         z-index: 1000;
         .valign-wrapper-home1{
             position: absolute;
             top: 0;
             left: 50%;
-            width: 700px;
-            height: 600px;
+            width: 710px;
+            height: 500px;
             margin-left: -350px;
             background-color: rgba(112, 164, 235, 0.5);
             text-align: center;
-            -webkit-transform: skew(-30deg);
+            -webkit-transform: skew(30deg);
             -moz-transform: skew(20deg);
               -o-transform: skew(20deg);
         }
@@ -34,11 +34,11 @@
             top: 0;
             left: 50%;
             width: 700px;
-            height: 600px;
+            height: 500px;
             margin-left: -350px;
-            background-color: rgba(112, 164, 235, 0.5);
+            background-color: rgba(53, 89, 137, 0.8);
             text-align: center;
-            -webkit-transform: skew(30deg);
+            -webkit-transform: skew(45deg);
             -moz-transform: skew(20deg);
               -o-transform: skew(20deg);
         }
@@ -47,7 +47,7 @@
             top: 0;
             left: 50%;
             width: 700px;
-            height: 600px;
+            height: 500px;
             margin-left: -350px;
             text-align: center;
             // background-color: rgba(0,0,0, 0.2);
@@ -55,7 +55,7 @@
                 position: relative;
                 top: 50%;
                 transform: translateY(-80px);
-                font-size: 2.5em;
+                font-size: 2.8rem;
                 color: #ffffff;
                 text-align: center;
                 font-family: 'Open Sans Bold', sans-serif;
@@ -69,7 +69,7 @@
                 position: relative;
                 top: 50%;
                 transform: translateY(-80px);
-                font-size: 2em;
+                font-size: 2.8rem;
                 font-family: 'Open Sans Bold', sans-serif;
                 color: #ffffff;
                 text-align: center;
@@ -92,9 +92,10 @@
 }
 
 #about{
+    margin-top: 50px;
     h1{
         text-align: center;
-        font-family: 'Open Sans Regular', sans-serif;
+        font-family: 'Open Sans Bold', sans-serif;
         font-size: 1.5em;
         text-transform: uppercase;
     }
@@ -102,7 +103,7 @@
 #our-services{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     .service1, .service2, .service3, .service4{
         position: relative;
         width: 250px;
@@ -141,10 +142,11 @@
     width: 100%;
     margin: 0 auto;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     text-align: center;
+    margin-top: 60px;
     h1{
-        font-family: 'Open Sans Regular', sans-serif;
+        font-family: 'Open Sans Bold', sans-serif;
         font-size: 1.5em;
         text-transform: uppercase;
     }
@@ -152,26 +154,27 @@
         position: relative;
         margin: 0 auto;
         text-align: center;
-        width: 760px;
-        height: 415px;
+        width: 860px;
+        height: 515px;
         iframe{
             position: relative;
             top: 0;
             left: 0;
         }
         .video-cover{
+            display: none;
             position: absolute;
             top: 0;
             left: 0;
-            width: 760px;
-            height: 415px;
+            width: 860px;
+            height: 515px;
             background-color: lighten($primary-color-dark,  0%);
             opacity: 0.3;
             margin: 0 auto;
             text-align: center;
             i{
                 font-size: 8rem;
-                line-height: 415px;
+                line-height: 515px;
                 color: red;
             }
         }
@@ -180,101 +183,38 @@
 }
 #career{
     min-height: 300px;
-    background-color: lighten($primary-color,  10%);
+    background-color: darken(#eaeaea,  0%);
     padding: 20px 0px;
     text-align: center;
+    margin-top: 60px;
     h1{
-        font-family: 'Open Sans Regular', sans-serif;
+        font-family: 'Open Sans Bold', sans-serif;
         font-size: 1.5em;
         margin: 0px;
-        margin-bottom: 10px;
+        margin-top: 20px;
         text-transform: uppercase;
         text-align: center;
-        color: darken($primary-color-dark,  20%);
-        margin-bottom: 20px;
+        color: darken($primary-color-dark,  50%);
+        margin-bottom: 30px;
     }
     h3{
         font-family: 'Open Sans Regular', sans-serif;
-        font-size: 1.5em; 
-        margin: 0px; 
-        color: darken($primary-color-dark,  10%);
+        font-size: 1.5rem;
+        margin: 0px;
+        color: darken($primary-color-dark,  50%);
     }
     h4{
-        font-family: 'Open Sans Light', sans-serif;
-        font-size: 2em;
-        margin: 0px;
-        color: darken($primary-color-dark,  5%);
+        font-family: 'Open Sans Regular', sans-serif;
+        font-size: 1.2rem;
+        margin: 5px;
+        color: darken($primary-color-dark,  50%);
     }
     p{
         font-family: 'Open Sans Regular', sans-serif;
-        font-size: 1.2em;    
+        font-size: 1.2rem; 
+        color: darken($primary-color-dark,  40%);   
     }
     button{
         background-color: darken($primary-color-dark,  0%);
     }
-}
-#blogs{
-    margin-bottom: 50px; 
-    h1{
-        font-family: 'Open Sans Regular', sans-serif;
-        font-size: 1.5em;
-        text-align: center;  
-    }
-    .blog-list{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        .blog-item{
-            width: 300px;
-            height: 350px;
-            text-align: center;
-            overflow: hidden;
-            background-color: $primary-color;
-            .img-holder{
-                overflow: hidden;
-                width: 300px;
-                height: 160px;
-                img{    
-                    &:hover{
-                        opacity: 0.5;
-                        // transform: rotateZ(90deg);
-                        transform: scale(1.2);
-                        transition: .3s;
-                    }
-                }
-            }
-
-            p{
-                margin: 0px;
-                color: lighten($primary-color-light,  10%);
-                margin: 0px;
-                font-family: 'Open Sans Regular', sans-serif;
-                font-size: 0.9rem;
-                padding: 0px 10px;
-            }
-            h1{
-                margin: 0px;
-                font-family: 'Open Sans Regular', sans-serif;
-                font-size: 1.2em;
-                color: lighten($primary-color-light,  40%);
-                padding: 0px 10px;
-                margin: 5px 0px;
-            }
-            small{
-                text-align: center;
-                // font-size: 1em;
-                color: lighten($primary-color-light,  20%);
-                a{
-                    color: lighten($primary-color-light,  30%);
-                    i{
-                        font-size: 1em;
-                    }
-                }
-            }
-        }
-    }
-    .more-news{
-        text-align: center;
-    }
-    
 }

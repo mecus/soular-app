@@ -1,0 +1,74 @@
+@import "../../../variables";
+.admin-service-container{
+    display: flex;
+    // align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    // min-height: 500px;
+    .admin-service-item{
+        flex-basis: 24.7%;
+        height: 200px;
+        margin-bottom: 5px;
+        // flex: 1;
+        .image{
+            overflow: hidden;
+            transition: .2s;
+            height: 120px;
+            img{
+                width: 100%;
+                height: 120px;
+                transition-timing-function: linear;
+                &:hover{
+                    opacity: 0.5;
+                    transform: scale(1.2);
+                    transition: .2s;
+                }
+            }
+        }
+        .content{
+            position: relative;
+            text-align: center;
+            height: 80px;
+            h1{
+                font-size: 0.8rem;
+                text-align: center;
+                font-family: 'Open Sans Regular', sans-serif;
+                text-transform: uppercase;
+                margin: 0px;
+                padding: 5px;
+            }
+            .buttons{
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                margin-bottom: -10;
+                display: flex;
+                justify-content: space-between;
+                a{
+                    flex: 1;
+                    font-size: 0.8rem;
+                    // background-color: $primary-color-dark;
+                    i{
+                        font-size: 0.8rem;
+                        padding: 0px;
+                        margin: 0px;
+                    }
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+                span{
+                    color: lightgray;
+                }
+            }
+
+        }
+
+    }
+    // .service-item:nth-child(1){
+    //     width: 49%;
+    // }
+}

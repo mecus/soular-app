@@ -4,7 +4,9 @@
 /dist
 /tmp
 /out-tsc
-
+/src/app/firebase-config.ts
+/server/dev/service-account-config.json
+/public
 # dependencies
 /node_modules
 

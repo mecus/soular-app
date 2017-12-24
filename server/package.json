@@ -1,0 +1,26 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "start": "npm run build-ts && npm run watch",
+    "serve": "nodemon ../functions/server.js",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve\""
+  },
+  "dependencies": {
+    "async": "^2.6.0",
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "firebase": "^4.8.0",
+    "firebase-admin": "^5.5.1",
+    "firebase-functions": "^0.7.5",
+    "lusca": "^1.5.2",
+    "morgan": "^1.9.0",
+    "nodemailer": "^4.4.1",
+    "typescript": "^2.6.2"
+  },
+  "private": true
+}

@@ -1,0 +1,63 @@
+<div class="container-no new-service-container">
+  <div class="row form-wrapper">
+    <form novalidate [formGroup]="newServiceForm" (ngSubmit)="updateService(newServiceForm.value)" class="col s12">
+      <div class="image-wrapper blue valign-wrapper">
+        <img [src]="upImage" alt="">
+          <div class="input-image red center-align">
+            <input (change)="onImageLoad($event)" type="file">
+            <p>
+              <i class="material-icons">add_a_photo</i>
+            </p>
+            <div *ngIf="progress" class="spinner">
+                <div class="preloader-wrapper big active">
+                    <div class="spinner-layer spinner-blue-only">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+      </div>
+      <div>
+          <input formControlName="image_name" type="text">
+        </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="service_name" formControlName="service_name" type="text" class="validate">
+          <!-- <label for="service_name">Service Name</label> -->
+        </div>
+        <div class="switch col s6">
+            <label>
+              Unpublish
+              <input formControlName="publish" type="checkbox">
+              <span class="lever"></span>
+              Publish
+            </label>
+        </div>
+        <input hidden formControlName="service_image" type="text">
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+            <textarea id="excerpt" formControlName="short_description" type="text" class="materialize-textarea"></textarea>
+            <!-- <label for="excerpt">Short Description</label> -->
+            <small>The input must be html format "<>/" </small>
+          </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+            <textarea id="description" formControlName="long_description" class="materialize-textarea"></textarea>
+            <!-- <label for="description">Long Description</label> -->
+            <small>The input must be html format "<>/" </small>
+          </div>
+      </div>
+      <div class="row">
+        <button class="btn waves-effect waves-light" type="submit">Submit Update</button>
+      </div>
+    </form>
+  </div>    
+</div>

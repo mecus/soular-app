@@ -1,4 +1,7 @@
 @import "../../../variables";
+.active{
+    background-color: black !important; 
+}
 .top-navigation{
     height: 80px;
     .top-nav-wrapper{
@@ -30,10 +33,15 @@
         }
         .right-nav-content{
             // flex: 1;
+            display: flex;
+            span{
+                margin-left: 5px;
+            }
             a{
                 color: $primary-color-dark;
             }
         }
+
     }
 }
 nav{

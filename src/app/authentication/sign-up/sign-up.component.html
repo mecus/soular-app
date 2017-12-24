@@ -1,0 +1,44 @@
+<div class="sign-up-container">
+  <div class="sign-up-wrapper">
+    <div class="sign-up-form card">
+        <div class="heading blue">
+            <h1>Sign Up</h1>
+        </div>
+        <form class="form" novalidate [formGroup]="signForm" (ngSubmit)="userSignUp(signForm.value)">
+            <div class="row">
+                <div class="input-field col s6">
+                  <input id="firstName" formControlName="firstName" type="text" placeholder="June" class="validate">
+                  <label for="firstName">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="lastName" formControlName="lastName" type="text" placeholder="Smith" class="validate">
+                    <label for="lastName">Last Name</label>
+                  </div>
+              </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="email" formControlName="email" type="email" placeholder="example@gmail.com" class="validate">
+                <label for="email">Email</label>
+              </div>
+              <div class="input-field col s6">
+                  <input id="telephone" formControlName="telephone" type="text" placeholder="+11234567890" class="validate">
+                  <label for="telephone">Telephone</label>
+                </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="password" formControlName="password" type="password" placeholder="E@hlk09Kj" class="validate">
+                <label for="password">Password</label>
+              </div>
+              <div class="input-field col s12">
+                  <input id="password" formControlName="repeat_password" type="password" placeholder="E@hlk09Kj" class="validate">
+                  <label for="password">Repeat Password</label>
+                </div>
+            </div>
+            <div class="submit-button">
+              <button class="btn waves-effect waves-light" type="submit">Sign Up</button>
+            </div>
+          </form>
+    </div>
+  </div>
+</div>

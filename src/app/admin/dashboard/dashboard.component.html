@@ -1,0 +1,65 @@
+<div class="container dasboard red">
+  <div class="content">
+    <div *ngIf="dashboard" class="dasboard-content">
+      <h1>Welcome to Soular Security</h1>
+      <p id="name">Danny</p>
+      <p>Be aware that you are in a delicate part of this website</p>
+      <p>any changes made here will affect the website</p>
+      <p>make sure you know what you are doing.</p>
+      <p><a href="/">Get Me Out</a></p>
+      <div class="today">
+        <p> <strong>Today : </strong> {{today | date: 'fullDate'}}</p>
+        <p> <strong>Time : </strong> {{today | date: 'shortTime'}}</p>
+      </div>
+    </div>
+    <div *ngIf="services" class="services">
+        <app-list-services></app-list-services>
+    </div>
+    <div *ngIf="newService" class="new-service">
+      <app-new-service></app-new-service>
+    </div>
+    <div *ngIf="updateService" class="updateService">
+      <app-update-service [updateId]="updateid"></app-update-service>
+    </div>
+    <div *ngIf="application" class="application">
+      <app-application></app-application>
+    </div>
+    <div *ngIf="users" class="users">
+        <app-users></app-users>
+    </div>
+    <div *ngIf="loading" class="loading-spinner">
+      <div class="spinner-inner">
+          <div class="preloader-wrapper big active">
+              <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="dash-nav amber">
+    <div class="nav-list green">
+      <a (click)="loadItem($event)" id="dashboard" >Dashboard</a>
+    </div>
+    <div class="nav-list green">
+        <a class="" (click)="loadItem($event)" id="new_service">New Service</a>
+    </div>
+    <div class="nav-list green">
+        <a class="" (click)="loadItem($event)" id="services">Services</a>
+    </div>
+    <div class="nav-list blue">
+      <a (click)="loadItem($event)" id="applications">Applications</a>
+    </div>
+    <div class="nav-list blue">
+      <a (click)="loadItem($event)" id="users" >Users</a>
+    </div>
+  </div>
+</div>
+

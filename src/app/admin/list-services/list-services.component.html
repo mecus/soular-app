@@ -1,0 +1,89 @@
+<div class="admin-service-container container-no">
+    <!-- <button class="btn" (click)="addData()">Add</button> -->
+  <div *ngFor="let service of services$ | async" class="admin-service-item card">
+    <div class="image">
+        <img [src]="service.service_image" alt="">
+    </div>
+    <div class="content">
+        <h1>{{service.service_name}}</h1>
+        <div class="buttons">
+            <a class="" (click)="goToUpdate(service.id)">
+                <i class="material-icons">edit</i> Edit
+            </a>
+            <span>|</span>
+            <a class="" (click)="removeService(service.id, service.image_name)">
+                <i class="material-icons">delete</i> Delete
+            </a>
+        </div>
+    </div>
+    <!-- <a href="/services/service">See</a> -->
+  </div>
+  <div class="admin-service-item card">
+    <div class="image">
+        <img src="assets/images/event_security_small.jpg" alt="">
+    </div>
+    <div class="content">
+      <h1>Event Security</h1>
+      <div class="buttons">
+            <a class="" href="/services/?service">
+                <i class="material-icons">edit</i> Edit
+            </a>
+            <span>|</span>
+            <a class="" href="/services/?service">
+                <i class="material-icons">delete</i> Delete
+            </a>
+        </div>
+    </div>
+  </div>
+  <div class="admin-service-item card">
+      <div class="image">
+          <img src="assets/images/hotel_security_small.jpg" alt="">
+      </div>
+      <div class="content">
+          <h1>Retail Security</h1>
+          <div class="buttons">
+                <a class="" href="/services/?service">
+                    <i class="material-icons">edit</i> Edit
+                </a>
+                <span>|</span>
+                <a class="" href="/services/?service">
+                    <i class="material-icons">delete</i> Delete
+                </a>
+            </div>
+      </div>
+  </div>
+  <div class="admin-service-item card">
+      <div class="image">
+          <img src="assets/images/hospitality_security_small.jpg" alt="">
+      </div>
+      <div class="content">
+          <h1>Corporate Security</h1>
+          <div class="buttons">
+                <a class="" href="/services/?service">
+                    <i class="material-icons">edit</i> Edit
+                </a>
+                <span>|</span>
+                <a class="" href="/services/?service">
+                    <i class="material-icons">delete</i> Delete
+                </a>
+            </div>
+      </div>
+  </div>
+  <div class="admin-service-item card">
+      <div class="image">
+          <img src="assets/images/hospitality_security_small.jpg" alt="">
+      </div>
+      <div class="content">
+          <h1>Corporate Security</h1>
+          <div class="buttons">
+                <a class="" href="/services/?service">
+                    <i class="material-icons">edit</i> Edit
+                </a>
+                <span>|</span>
+                <a class="" href="/services/?service">
+                    <i class="material-icons">delete</i> Delete
+                </a>
+            </div>
+      </div>
+  </div>
+</div>

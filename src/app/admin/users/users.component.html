@@ -1,0 +1,46 @@
+<p>Users</p>
+<table>
+    <thead>
+      <tr>
+          <th>Display Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Privilege</th>
+          <th></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let user of users$">
+        <td>{{user.displayName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phoneNumber}}</td>
+        <td *ngIf="user.customClaims"><i id="setBtn" (click)="getForm(user)" class="material-icons">launch</i> {{user.customClaims.privilege}} </td>
+
+        <td (click)="deleteUser(user)">delete<i id="setBtn" class="material-icons">delete</i></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="accessForm" class="set-privilege">
+    <div class="input-wrapper">
+        <i (click)="closeForm()" class="material-icons">clear</i>
+        <div class="selected-user">
+          <p>{{selectedUser.displayName}}</p>
+        </div>
+        <div class="input-field">
+            <select #access>
+              <option value="" disabled selected>Choose Access Level</option>
+              <option value="user">User</option>
+              <option value="staff">Staff</option>
+              <option value="editor">Editor</option>
+              <option value="admin">Admin</option>
+            </select>
+            <!-- <label>Materialize Select</label> -->
+        </div>
+        <div class="submit-btn">
+          <button class="btn" (click)="setPrivilege(access.value)">Submit</button>
+        </div>
+    </div>
+  </div>
+

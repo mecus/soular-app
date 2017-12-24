@@ -1,0 +1,5 @@
+<div class="side-blog" *ngFor="let news of news$">
+  <img [src]="news.urlToImage" alt="">
+  <h1>{{news.title}}</h1>
+  <small>Posted: {{news.publishedAt | date}}</small>
+</div>

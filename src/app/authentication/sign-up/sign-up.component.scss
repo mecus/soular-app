@@ -1,0 +1,27 @@
+.sign-up-container{
+    .sign-up-wrapper{
+        width: 450px;
+        min-height: 500px;
+        margin: 0 auto;;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        .sign-up-form{
+            margin: 0px;
+            .heading{
+                height: 40px;
+                h1{
+                    font-size: 1.5rem;
+                    margin: 0px;
+                    margin-bottom: 20px;
+                    color: #ffffff;
+                    line-height: 40px;
+                    text-align: center;
+                }
+            }
+
+            .form{
+                padding: 30px 20px;
+            }
+        }
+    }
+}

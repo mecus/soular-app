@@ -1,0 +1,84 @@
+@import "../../../variables";
+.dasboard{
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    .content{
+        position: relative;
+        flex: 7;
+        order: 2;
+        .loading-spinner{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0,0,0, 0.5);
+            z-index: 1;
+            .spinner-inner{
+                position: absolute;
+                top: 30%;
+                left: 50%;
+                width: 200px;
+                height: 200px;
+                margin-left: -100px;
+                text-align: center;
+            }
+        }
+        .dasboard-content{
+            position: relative;
+            background-color: $primary-color-light;
+            margin: 0px;
+            height: 250px;
+            h1{
+                position: relative;
+                top: 0;
+                margin: 0 auto; 
+                font-size: 2.5rem;
+                text-align: center;
+                padding-top: 40px;
+            }
+            p, p#name, a{
+                text-align: center; 
+            }
+            p#name{
+                font-size: 1.8rem;
+            }
+            p{
+                font-size: 1rem;
+                margin: 0px;
+            }
+            a{color: red;}
+            .today{
+                margin: 0px 10px;
+                display: flex;
+                justify-content: space-between;
+                p{
+                    text-align: right;
+                    color: lightgray;
+                    font-size: 0.7rem;
+                    margin: 0px;
+                }
+
+            }
+        }
+        .services, .new-service, .updateService{
+            padding: 5px 10px;
+        }
+    }
+    .dash-nav{
+        // position: absolute;
+        width: 150px;
+        min-height: 500px;
+        // flex: 2;
+        order: 1;
+        .nav-list{
+            padding: 10px 5px;
+            margin-bottom: 1px;
+            a{
+                font-size: 1.2rem;
+                color: #ffffff;
+            }
+        }
+    }
+}

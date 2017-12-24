@@ -1,0 +1,22 @@
+<div id="blogs" class="container">
+    <h1>Latest News</h1>
+    <div class="blog-list">
+      <div *ngFor="let blog of blog$" class="blog-item">
+          <p>{{blog.author}}</p>
+          <div class="img-holder">
+              <img [src]="blog.urlToImage" style="width: 300px;" alt="">
+          </div>
+          <h1>{{blog.title}}</h1>
+          <small>Posted: {{blog.publishedAt | date}}</small>
+          <p>{{blog.description}}</p>
+          <small>
+            <a href="">read more <i class="material-icons">open_in_new</i> </a>
+          </small>
+      </div>
+      <!-- <div class="blog-item amber"></div>
+      <div class="blog-item red"></div> -->
+    </div>
+    <div class="more-news">
+        <a href="">More News</a>
+    </div>
+</div>

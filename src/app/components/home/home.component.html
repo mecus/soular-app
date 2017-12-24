@@ -59,7 +59,7 @@
     <div id="home-video">
       <h1>Video</h1>
       <div class="video">
-          <iframe width="760" height="415" src="https://www.youtube-nocookie.com/embed/X0oz1RhcN9I" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+          <iframe width="860" height="515" src="https://www.youtube-nocookie.com/embed/X0oz1RhcN9I" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
           <div class="video-cover">
             <i class="material-icons">play_arrow</i>
           </div>
@@ -74,30 +74,8 @@
       <h3>Soular Limited is a successful and growing security company</h3>
       <h4>Serving Public and Private Sectors</h4>
       <p>We always have vacancies for enthusiastic, talented and loyal people to fill roles within our team.</p>
-      <button class="btn waves-effects">apply</button>
+      <button class="btn waves-effects">apply for job</button>
     </div>
 </div>
-
-<div id="blogs" class="container">
-  <h1>Latest News</h1>
-  <div class="blog-list">
-    <div *ngFor="let blog of blog$" class="blog-item">
-        <p>{{blog.author}}</p>
-        <div class="img-holder">
-            <img [src]="blog.urlToImage" style="width: 300px;" alt="">
-        </div>
-        <h1>{{blog.title}}</h1>
-        <small>Posted: {{blog.publishedAt | date}}</small>
-        <p>{{blog.description}}</p>
-        <small>
-          <a href="">read more <i class="material-icons">open_in_new</i> </a>
-        </small>
-    </div>
-    <!-- <div class="blog-item amber"></div>
-    <div class="blog-item red"></div> -->
-  </div>
-  <div class="more-news">
-      <a href="">More News</a>
-  </div>
-</div>
+<app-news-base></app-news-base>
 
