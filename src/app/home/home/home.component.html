@@ -1,3 +1,4 @@
+
 <div class="carousel carousel-slider center" data-indicators="true">
     <!-- <div class="carousel-fixed-item center">
       <a class="btn waves-effect white grey-text darken-text-2">button</a>
@@ -27,7 +28,7 @@
       <div class="home-text">
           <h1 class="center-align">Keeping Our</h1>
           <p>Community Safe</p>
-          <i id="home-arrow" class="material-icons">arrow_downward</i>
+          <i id="home-arrow" (click)="slideUp()" class="material-icons">arrow_downward</i>
       </div>
     </div>
 </div>
@@ -40,19 +41,19 @@
     </div>
     <div id="our-services">
       <div class="service1 red">
-        <img src="assets/images/westminster.jpg" alt="">
+        <img (click)="routeNavigation('about')" src="assets/images/westminster.jpg" alt="">
         <h1>Who we are</h1>
       </div>
       <div class="service2 amber">
-        <img src="assets/images/pexels-photo-303159.jpeg" alt="">
+        <img (click)="routeNavigation('services')" src="assets/images/pexels-photo-303159.jpeg" alt="">
         <h1>What we do</h1>
       </div>
       <div class="service3 green">
-        <img src="assets/images/pexels-photo-226746.jpeg" alt="">
+        <img (click)="routeNavigation('services')" src="assets/images/pexels-photo-226746.jpeg" alt="">
         <h1>How we do it</h1>
       </div>
       <div class="service3 blue">
-        <img src="assets/images/pexels-photo-327540.jpeg" alt="">
+        <img (click)="routeNavigation('services')" src="assets/images/pexels-photo-327540.jpeg" alt="">
         <h1>What you can do</h1>
       </div>
     </div>
@@ -74,7 +75,7 @@
       <h3>Soular Limited is a successful and growing security company</h3>
       <h4>Serving Public and Private Sectors</h4>
       <p>We always have vacancies for enthusiastic, talented and loyal people to fill roles within our team.</p>
-      <button class="btn waves-effects">apply for job</button>
+      <button (click)="routeNavigation('career')" class="btn waves-effects">apply for job</button>
     </div>
 </div>
 <app-news-base></app-news-base>

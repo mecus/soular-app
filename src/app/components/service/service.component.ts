@@ -14,17 +14,11 @@ export class ServiceComponent implements OnInit {
   private wwdo: WWDOService) { }
 
   ngOnInit() {
-    this.route.params.forEach((param: Params )=>{
-      // console.log(param);
-      let id = param['id'];
-      this.wwdo.getOneService(id)
-      .subscribe(service =>{
-        this.service$ = service
-        setTimeout(()=>{
-          this.service$ = service;
-        }, 1000);
-        // console.log(this.service$);
-      })
+    this.route.paramMap.map((param) => {
+      let id = param.get("id");
+      return id;
+    }).subscribe(id => {
+      this.service$ = this.wwdo.getOneService(id);
     });
   }
 

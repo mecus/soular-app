@@ -1,27 +1,29 @@
 <div class="service-page">
-  <div class="service-header">
-    <div class="image-holder blue">
-        <img [src]="service$.service_image" alt=""> 
-    
-        <div class="image-cover1"></div>
-        <div class="image-cover">
-            <h1>{{service$.service_name}}</h1>
-            <p><a href="#service">read</a></p>
+  <div *ngIf="service$ | async as s">
+    <div class="service-header">
+      <div class="image-holder blue">
+          <img  [src]="s.service_image" alt=""> 
+      
+          <div class="image-cover1"></div>
+          <div class="image-cover">
+              <h1>{{s.service_name}}</h1>
+              <p><a href="#service">read</a></p>
 
-        </div>
+          </div>
+      </div>
     </div>
-  </div>
-  <div class="container">
-    <div class="content">
-        <div class="service">
-          <h1>{{service$.service_name}}</h1>
-          <div class="short" [innerHTML]="service$.short_description"></div>
-          <div class="long" [innerHTML]="service$.long_description"></div>
-        </div>
-        <div class="news">
-          <h1>News</h1>
-          <app-news-side></app-news-side>
-        </div>
+    <div class="container">
+      <div class="content">
+          <div class="service">
+            <h1>{{s.service_name}}</h1>
+            <div class="short" [innerHTML]="s.short_description"></div>
+            <div class="long" [innerHTML]="s.long_description"></div>
+          </div>
+          <div class="news">
+            <h1>News</h1>
+            <app-news-side></app-news-side>
+          </div>
+      </div>
     </div>
   </div>
 </div>

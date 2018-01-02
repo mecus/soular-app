@@ -1,3 +1,6 @@
+<!-- <div class="flash-holder">
+  <flash-notice [notice]="flash"></flash-notice>
+</div> -->
 <p>Users</p>
 <table>
     <thead>
@@ -9,7 +12,7 @@
           <th></th>
       </tr>
     </thead>
-  
+    <p *ngIf="sessionExpireMsg">{{sessionExpireMsg}}</p>
     <tbody>
       <tr *ngFor="let user of users$">
         <td>{{user.displayName}}</td>

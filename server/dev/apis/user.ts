@@ -1,7 +1,8 @@
 import {Request, Response, NextFunction } from "express";
 import { firebase } from "../configurations/firebase-config";
-
 import * as async from "async";
+const db = firebase.firestore();
+const users = db.collection('users');
 
 export const getUsers = (req, res, next) => {
 
@@ -13,7 +14,7 @@ export const getUsers = (req, res, next) => {
     })
     .catch((error) => {
         // console.log("Error fetching user data:", error);
-        next(error);
+        res.status(201).json({statusCode: 201, Error: error});
     });
 
 };
@@ -64,6 +65,22 @@ export const createUser = (req: Request, res: Response, next: NextFunction) => {
                 console.log(err);
                 next(err);
             })
+        },
+        (user, done: Function) => {
+            let newUser = {
+                accountNo: req.body.accountNo,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                email: req.body.email,
+                phoneNumber: req.body.telephone
+            }
+            users.doc(user.uid).set(newUser)
+            .then((ref) => {
+                done(null, user);
+            })
+            .catch((err) => {
+                next(err);
+            });
         },
         (user, done: Function) => {
             firebase.auth().createCustomToken(user.uid)

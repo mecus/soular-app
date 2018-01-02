@@ -25,8 +25,14 @@ export class SignUpComponent implements OnInit {
   }
 
   userSignUp(user){
-    // console.log(user);
-    this.authService.signUpwithPassword(user);
+    let acNo = Number(user.telephone);
+    let num = acNo * 2;
+    let users = {
+      ...user, accountNo: num
+    };
+    // console.log(users);
+  
+    this.authService.signUpwithPassword(users);
   }
 
   ngOnInit() {

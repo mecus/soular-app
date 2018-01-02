@@ -1,0 +1,103 @@
+<flash-notice [notice]="flash"></flash-notice>
+<div class="top-navigation">
+  <div class="container">
+    <div class="top-nav-wrapper">
+      <div class="brands">
+          <a (click)="routeNavigation('home')">Soular</a>
+        </div>
+        <div class="center-nav">
+          <div class="notice">
+              <p>
+                  To report an imminent threat call 999 or ring the Anti-Terrorist Hotline on 0800 789 321
+                  Current UK threat level: SEVERE Read more about threat levels >>
+              </p>
+          </div>
+        </div>
+        <div class="right-nav-content">
+            <div class="user-login">
+              <span *ngIf="currentUser" (click)="dropMenu()" class="items items-menu">
+                  <!-- <span class="items-menu" (click)="dropMenu()"></span> -->
+                  <!-- <button class="items-menu btn waves-effect waves-ripple" (click)="dropMenu()"><i class="items-menu material-icons left">account_circle</i>{{currentUser.displayName}}</button> -->
+                  <div class="chip items-menu">
+                      <!-- <img *ngIf="currentUser.photoURL" class="items-menu" [src]="currentUser.photoURL" alt=""> -->
+                      <img *ngIf="currentUser.photoURL" class="items-menu" src="assets/images/avatar.png" alt="">
+                      <span class="items-menu">{{currentUser.displayName}}</span>
+                  </div>
+              </span>
+              <span *ngIf="!currentUser" (click)="goToLoginForm()" class="items">Login</span>
+            </div>
+            <div id="drop-items"  class="drop-items">
+              <span class="link-line">
+                  <span><i class="material-icons">dashboard</i></span>
+                  <span><a href="#!">one</a></span>
+              </span>
+              <span class="link-line">
+                  <span><i class="material-icons">account_circle</i></span>
+                  <span><a (click)="[routeNavigation('account'), closeMenu()]">Account</a></span>
+              </span>
+              <span class="link-line">
+                <span><i class="material-icons">dashboard</i></span>
+                <span><a (click)="[goToDashboard(), closeMenu()]">Dashboard</a></span>
+              </span>
+              <span class="divider"></span>
+              <span class="power-btn link-line">
+                <span class="power-btn"><i class="material-icons">power_settings_new</i></span>
+                <span><a class="power-btn" (click)="[signOut(), closeMenu()]">LogOut</a></span>
+              </span>
+            </div>
+              <!-- <li><a (click)="goToDashboard()">Dashboard</a></li> -->
+              <!-- <span>|</span> -->
+              <!-- <span *ngIf="currentUser"><a (click)="goToDashboard()"> <i class="material-icons">person_pin</i> {{currentUser.displayName}}</a></span> -->
+              <!-- <span *ngIf="currentUser"><a (click)="goToDashboard()">{{currentUser.displayName}}</a></span>
+              <span *ngIf="currentUser">|</span>
+              <span *ngIf="currentUser"><a (click)="signOut()">LogOut</a></span> -->
+              <!-- <span *ngIf="currentUser"><a class="dropdown-button" data-activates="account">{{currentUser.displayName}}<i class="material-icons right">arrow_drop_down</i></a></span> -->
+              <!-- <span *ngIf="!currentUser"><a (click)="goToLoginForm()">Login</a></span> -->
+    
+  
+
+        </div>  
+    </div>
+  </div>
+</div>
+
+<nav>
+  <div class="container">
+  <div class="nav-wrapper">
+    <!-- <a href="#!" class="brand-logo">Soular</a> -->
+    <ul class="right hide-on-med-and-down">
+      <li class="list-item"><a (click)="routeNavigation('about')" title="about" routerLinkActive="active">Who We Are</a></li>
+      <li class="list-item"><a (click)="routeNavigation('services')" title="services" routerLinkActive="active">What We Do</a></li>
+      <!-- <li class="list-item"><a class="dropdown-button" data-activates="services" href="/services">What We Do <i class="material-icons right">arrow_drop_down</i></a></li> -->
+      <li class="list-item"><a (click)="routeNavigation('career')" title="career" routerLinkActive="active">Career</a></li>
+      <li class="list-item"><a (click)="routeNavigation('contact')" title="contact" routerLinkActive="active">Contact</a></li>
+      <li class="list-item"><a (click)="routeNavigation('news')" title="news" routerLinkActive="active">News</a></li>
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button"  data-activates="dropdown1">What You Can Do<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+  </div>
+  </div>
+</nav>
+
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
+<!-- Dropdow for Services -->
+<ul id="services" class="dropdown-content">
+    <li><a href="#!">public sector security</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>
+<!-- Login links -->
+<ul id="account" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li><a href="/my_account">Account</a></li>
+    <li><a (click)="goToDashboard()">Dashboard</a></li>
+    <li class="divider"></li>
+    <li><a (click)="signOut()">LogOut</a></li>
+  </ul>

@@ -1,0 +1,178 @@
+<div class="application-container">
+  <div class="appl-form">
+      <div class="row">
+        <p>{{invaliMsg}}</p>
+        <form novalidate [formGroup]="application" (ngSubmit)="appValue(application.value)" class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input formControlName="firstName" id="first_name" type="text" class="validate">
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input formControlName="lastName" id="last_name" type="text" class="validate">
+              <label for="last_name">Last Name</label>
+            </div>
+          </div>
+          <div class="row">
+              <div class="input-field col s6">
+                <input formControlName="email"  id="email" type="email" class="validate">
+                <label for="email">Email</label>
+              </div>
+              <div class="input-field col s6">
+                <input formControlName="telephone" id="telephone" type="text" class="validate">
+                <label for="telehpone">Telephone</label>
+              </div>
+            </div>
+            <div formGroupName = "birthday" class="row birthday">
+              <div class="input-field col s4">
+                  <select id = "day" name = "day">
+                      <option value="" disabled selected>Choose day</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+                      <option value="16">16</option>
+                      <option value="17">17</option>
+                      <option value="18">18</option>
+                      <option value="19">19</option>
+                      <option value="20">20</option>
+                      <option value="21">21</option>
+                      <option value="22">22</option>
+                      <option value="23">23</option>
+                      <option value="24">24</option>
+                      <option value="25">25</option>
+                      <option value="26">26</option>
+                      <option value="27">27</option>
+                      <option value="28">28</option>
+                      <option value="29">29</option>
+                      <option value="30">30</option>
+                      <option value="31">31</option>
+                    </select>
+                  <label for="birthday">Day of birth</label>
+              </div>
+              <div class="input-field col s4">
+                  <select id="month" name = "month">
+                    <option value="" disabled selected>Choose Month </option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="Novenber">Novenber</option>
+                    <option value="December">December</option>
+                  </select>
+                  <label for="birthday">Month of birth</label>
+              </div>
+              <div class="input-field col s4">
+                  <input formControlName="year" id="birthday" placeholder="1900" type="text" class="validate">
+                  <label for="birthday">Year of birth</label>
+              </div>
+            </div>
+
+            <div class="row address-section">
+                <div class="input-field col s6">
+                  <input formControlName="houseNo" id="no" type="text">
+                  <label for="no">House/Flat No.</label>
+                </div>
+                <div class="input-field col s6">
+                  <input formControlName="address" id="address" type="text">
+                  <label for="address">Address</label>
+                </div>
+                <div class="input-field col s6">
+                  <input formControlName="county" id="county" type="text">
+                  <label for="county">County</label>
+                </div>
+                <div class="input-field col s6">
+                  <input formControlName="postCode" id="postcode" type="text">
+                  <label for="postcode">Postcode</label>
+                </div>
+                <div class="input-field col s12">
+                  <input formControlName="country" id="country" type="text">
+                  <label for="country">Country</label>
+                </div>
+              </div>
+
+          <div class="row sia-section">
+            <div class="input-field col s12">
+              <input formControlName="siaNumber" id="sia" type="text" class="validate">
+              <label for="sia">Sia Licence No.</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>Upload Sia</span>
+                <input (change)="fileUpload($event)" type="file">
+              </div>
+              <div class="file-path-wrapper">
+                <!-- <p>{{fileName}}</p> -->
+                <input [value] = "fileName" class="file-path validate" type="text">
+              </div>
+            </div>
+          </div>
+          
+          <!-- <div class="row">
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>Upload CV</span>
+                  <input (change)="fileUpload($event)" type="file">
+                </div>
+                <div class="file-path-wrapper">
+                  <input [value] = "fileName" class="file-path validate" type="text">
+                </div>
+              </div>
+          </div> -->
+
+          <!-- <div class="row">
+            <div class="input-field col s12">
+              <input id="password" type="text" class="validate">
+              <label for="password">Elegibity</label>
+            </div>
+          </div> -->
+          <div class="row elegibility-section">
+            <div class="col s12">
+              <p>
+                <input formControlName="ageLimit" type="checkbox" id="test6"/>
+                <label for="test6">I'm over 18 years old</label>
+              </p>
+              <p>
+                <input formControlName="elegibility" value="I'm elegible to work in the Uk" type="radio" id="permit" />
+                <label for="permit">I'm elegible to work in the Uk</label>
+              </p>
+              <p>
+                <input formControlName="elegibility" value="I'm not elegible to work in the Uk" type="radio" id="nopermit" />
+                <label for="nopermit">I'm not elegible to work in the Uk</label>
+              </p>
+            </div>
+          </div>
+         
+          <div class="submit-btn">
+            <button class="btn waves-effect waves-light" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>       
+  </div>
+</div>
+<div *ngIf="progress" class="progress-cover">
+  <div class="progress">
+    <div class="indeterminate"></div>
+    <p>{{progress}}</p>
+    <!-- <p>Uploading Photos...</p> -->
+  </div>
+</div>

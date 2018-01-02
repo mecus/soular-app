@@ -9,11 +9,17 @@ import { ListServicesComponent } from './list-services/list-services.component';
 import { ApplicationComponent } from './application/application.component';
 import { UsersComponent } from './users/users.component';
 import { ApplicantComponent } from './applicant/applicant.component';
+import { ShareModule } from '../share/share.module';
 
 
 @NgModule({
-    declarations: [NewServiceComponent, UpdateServiceComponent, DashboardComponent, ListServicesComponent, ApplicationComponent, UsersComponent, ApplicantComponent],
-    imports: [BrowserModule, FormsModule, ReactiveFormsModule ],
+    declarations: [
+        NewServiceComponent, UpdateServiceComponent, 
+        DashboardComponent, ListServicesComponent, 
+        ApplicationComponent, UsersComponent, ApplicantComponent
+    ],
+    imports: [BrowserModule, FormsModule, ReactiveFormsModule, 
+        ShareModule ],
     exports: [],
     providers: [WWDOService]
 })

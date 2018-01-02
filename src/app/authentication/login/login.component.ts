@@ -20,6 +20,12 @@ export class LoginComponent implements OnInit {
       password: [""]
     });
   }
+  signUpPage(){
+    this._router.navigate(["/sign_up"]);
+  }
+  passwordEmailPage(){
+    this._router.navigate(["/password_reset_email"]);
+  }
   userLogin(user){
     // console.log(user);
     this.authService.loginWithPassword(user);

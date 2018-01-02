@@ -12,6 +12,9 @@ export class UsersComponent implements OnInit {
   users$;
   accessForm:boolean = false;
   selectedUser;
+  sessionExpireMsg;
+  flash;
+  flashCouter:number = 0;
   constructor(private authService: AuthService, private _router: Router) { }
   getForm(user){
     this.accessForm = true;
@@ -32,17 +35,28 @@ export class UsersComponent implements OnInit {
     }
     this.authService.setUserPrivilege(user)
     .subscribe((res) => {
-      this._router.navigate(["/admin/dashboard/?", {display: "user"}]);
+      this.getAllUsers();
+      // this._router.navigate(["/admin/dashboard/?", {display: "user"}]);
       this.accessForm = false;
+      this.flash = `[${this.flashCouter}] ${res['message']}`;
     });
+    this.flashCouter ++;
   }
   deleteUser(user){
     console.log(user);
   }
-  ngOnInit() {
+  getAllUsers(){
     this.authService.listAllUsers().subscribe((users: any)=> {
-      console.log(users.users);
+      // console.log(users.users);
       this.users$ = users.users;
+    },(err) => {
+      console.log("Error: ", err.error.msg);
+      if(err.error.msg.code == "auth/argument-error"){
+        this.sessionExpireMsg = "Your session has expired please logout and log back in..";
+      }
     });
+  }
+  ngOnInit() {
+    this.getAllUsers();
   }
 }

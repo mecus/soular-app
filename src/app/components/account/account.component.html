@@ -1,0 +1,179 @@
+<flash-notice [notice]="flash"></flash-notice>
+<div class="account-container container">
+  <div class="account-wrapper">
+    <div class="account-header amber">
+      <div class="image red">
+        <img *ngIf="currentUser" src="assets/images/avatar.png" alt="">
+        <!-- <img *ngIf="currentUser && currentUser.photoURL" [src]="currentUser.photoURL" alt=""> -->
+      </div>
+      <div *ngIf="currentUser" class="title">
+          <h1>{{currentUser.displayName}}</h1>
+      </div>
+    </div>
+    <p [style.color]="'red'" *ngIf="incompletAccountMsg">{{incompletAccountMsg}}</p>
+  </div>
+  <div class="content-section">
+    <div class="account-details">
+      <h1>My Account</h1>
+      <div class="">
+        <ul class="collapsible" data-collapsible="accordion">
+            <!-- Personal Details Section -->
+            <li>
+              <div class="collapsible-header active"><i class="material-icons">personal_pin</i>Personal Details</div>
+              <div class="collapsible-body">
+                  <form [formGroup]="personalForm" (ngSubmit)="personalDetail(personalForm.value)" class="card imutate-content">
+                      <div class="card-content">
+                        <div class="row">
+                          <div class="input-field col s6">
+                            <input formControlName="firstName" placeholder="first name" id="first_name" type="text" class="validate">
+                            <label for="first_name">First Name</label>
+                          </div>
+                          <div class="input-field col s6">
+                            <input formControlName="lastName" placeholder="last name" id="last_name" type="text" class="validate">
+                            <label for="last_name">Last Name</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                              <input formControlName="email" placeholder="email" id="email" type="email" class="validate">
+                              <label for="email">Email</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input formControlName="phoneNumber" placeholder="phone number" id="telephone" type="text" class="validate">
+                                <label for="telephone">Telephone</label>
+                              </div>
+                          </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <button class="btn waves-effect waves-light" type="submit">Update</button>
+                          </div>
+                        </div>
+                    </div>
+                  </form>
+                <span>Please note that some of the details may not be directly editable.</span>
+                <span>contact administrator for assistant.</span>
+              </div>
+            </li>
+            <!-- Address section -->
+            <li>
+              <div class="collapsible-header"><i class="material-icons">place</i>Your Address</div>
+              <div class="collapsible-body">
+                  <form [formGroup]="addressForm" (ngSubmit)="addressUpdate(addressForm.value)" class="col s12 card">
+                    <div class="card-content">
+                      <div class="row">
+                        <div class="input-field col s6">
+                          <input formControlName="houseNo" placeholder="45" id="house_no" type="text" class="validate">
+                          <label for="house_no">House/Flat No</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input formControlName="street" placeholder="my street name" id="street_name" type="text" class="validate">
+                          <label for="street_name">Street Name</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s6">
+                          <input formControlName="county" placeholder="like london" id="county" type="text" class="validate">
+                          <label for="county">County</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input formControlName="postCode" placeholder="my postcode" id="post_code" type="text" class="validate">
+                            <label for="post_code">Post Code</label>
+                          </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input formControlName="country" placeholder="United Kingdom" id="country" type="text" class="validate">
+                          <label for="country">Country</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <button class="btn waves-effect waves-light" type="submit">Update Address</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                <span>Update your address and don't forget to hit the update address button.</span>
+              </div>
+            </li>
+
+            <!-- Password Section -->
+            <li>
+              <div class="collapsible-header"><i class="material-icons">lock_outline</i>Password Management</div>
+              <div class="collapsible-body">
+                  <form novalidate [formGroup]="passwordForm" (ngSubmit)="changePassword(passwordForm.value)" class="card">
+                      <div class="row card-content black-text">
+                          <span class="card-title">
+                              Change Password
+                          </span>
+                        <div class="input-field col s12">
+                          <input formControlName="oldPassword" id="password" type="password" class="validate">
+                          <label for="password">Old Password</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input formControlName="newPassword" id="password" type="password" class="validate">
+                            <label for="password">New Password</label>
+                          </div>
+                          <div class="input-field col s12">
+                              <input formControlName="repeatPassword" id="password" type="password" class="validate">
+                              <label for="password">Repeat New Password</label>
+                          </div>
+                        </div>
+                          <div class="card-action">
+                            <button class="btn waves-effect waves-light" type="submit">Change Password</button>
+                        </div>              
+                    </form>
+                  <!-- <span>Lorem ipsum dolor sit amet.</span> -->
+                </div>
+            </li>
+
+            <!-- Sia Card Section -->
+            <li>
+                <div class="collapsible-header"><i class="material-icons">card_membership</i>Sia Card</div>
+                <div class="collapsible-body">
+                  <div class="card">
+                    <div class="card-content">
+                      <img src="" alt="">
+                      <div class="file-field input-field">
+                          <div class="btn">
+                            <span>Upload Sia Card</span>
+                            <input (change)="newSiaCard($event)" type="file">
+                          </div>
+                          <div class="file-path-wrapper">
+                            <input [value] = "fileName" class="file-path validate" type="text">
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-content">
+                      <form [formGroup]="siaForm" (ngSubmit)="siaLicenseUpdate(siaForm.value)">
+                        <div class="row">
+                          <div class="input-field col s6">
+                            <input formControlName="siaNumber" placeholder="908878766653" type="text" id="card_number">
+                            <label for="card_number">Sia Card Number</label>
+                          </div>
+                          <div class="input-field col s6">
+                            <input formControlName="expires" placeholder="02/12/2020" type="text" id="expires">
+                            <label for="expires">Expires</label>
+                          </div>
+                          <div class="input-field col s12">
+                            <button class="btn waves-effect wave-light" type="submit">update sia</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <!-- <span>Lorem ipsum dolor sit amet.</span> -->
+                </div>
+              </li>
+          </ul>
+
+        </div>
+      </div>
+      <div class="side-bar">
+        <h1>News</h1>
+        <app-news-side></app-news-side>
+      </div>
+  </div>
+</div>

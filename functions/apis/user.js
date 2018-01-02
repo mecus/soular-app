@@ -2,6 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const firebase_config_1 = require("../configurations/firebase-config");
 const async = require("async");
+const db = firebase_config_1.firebase.firestore();
+const users = db.collection('users');
 exports.getUsers = (req, res, next) => {
     firebase_config_1.firebase.auth().listUsers()
         .then((userRecord) => {
@@ -11,7 +13,7 @@ exports.getUsers = (req, res, next) => {
     })
         .catch((error) => {
         // console.log("Error fetching user data:", error);
-        next(error);
+        res.status(201).json({ statusCode: 201, Error: error });
     });
 };
 exports.loginUser = (req, res, next) => {
@@ -58,6 +60,22 @@ exports.createUser = (req, res, next) => {
             })
                 .catch((err) => {
                 console.log(err);
+                next(err);
+            });
+        },
+        (user, done) => {
+            let newUser = {
+                accountNo: req.body.accountNo,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                email: req.body.email,
+                phoneNumber: req.body.telephone
+            };
+            users.doc(user.uid).set(newUser)
+                .then((ref) => {
+                done(null, user);
+            })
+                .catch((err) => {
                 next(err);
             });
         },

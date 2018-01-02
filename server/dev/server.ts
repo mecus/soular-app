@@ -6,6 +6,8 @@ import * as bodyParser from "body-parser";
 import { getUsers, loginUser, createUser, deleteUser, updateUser, setPrivilege } from "./apis/user";
 import * as cors from "cors";
 import { errorHandler } from "./middlewares/errorHandle";
+import { passwordEmail, passwordReset } from "./apis/password_management";
+import { isAuthorized } from "./configurations/firebase-config";
 
 const app = express();
 app.set("port", process.env.PORT || 3000);
@@ -20,16 +22,19 @@ app.get("/", function(req, res, next){
 
 });
 
-app.get("/users", getUsers);
+app.get("/users", isAuthorized, getUsers);
 app.post("/users/login", loginUser);
 app.post("/users/new", createUser);
 app.post("/users/update", updateUser);
-app.post("/users/set_privilege", setPrivilege);
-app.delete("/users/:id", deleteUser);
+app.post("/users/set_privilege", isAuthorized, setPrivilege);
+app.delete("/users/delete/:id", isAuthorized, deleteUser);
+
+app.post("/users/password_email", passwordEmail);
+app.post("/users/password_reset", passwordReset);
 
 
 app.use(errorHandler);
-app.listen(app.get("port"), function(){
+app.listen(app.get("port"), () => {
     console.log(`
     Server Started On Port: ${app.get("port")}
     `);

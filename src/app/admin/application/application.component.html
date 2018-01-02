@@ -1,20 +1,26 @@
 <p>Applicants</p>
 <table>
   <thead>
-    <tr>
+    <!-- <tr>
         <th>Name</th>
         <th>Item Name</th>
         <th>Item Price</th>
-    </tr>
+    </tr> -->
   </thead>
 
   <tbody>
-    <tr>
-      <td>Alvin</td>
-      <td>Eclair</td>
-      <td>$0.87</td>
+    <tr *ngFor="let applicant of applications$ | async">
+      <td>{{applicant.firstName}}</td>
+      <td>{{applicant.lastName}}</td>
+      <td>{{applicant.email}}</td>
+      <td>{{applicant.telephone}}</td>
+      <td>{{applicant.siaNumber}}</td>
+      <td>{{applicant.uid}}</td>
+      <!-- <td>{{applicant.firstName}}</td>
+      <td>{{applicant.lastName}}</td>
+      <td>{{applicant.id}}</td> -->
     </tr>
-    <tr>
+    <!-- <tr>
       <td>Alan</td>
       <td>Jellybean</td>
       <td>$3.76</td>
@@ -23,6 +29,6 @@
       <td>Jonathan</td>
       <td>Lollipop</td>
       <td>$7.00</td>
-    </tr>
+    </tr> -->
   </tbody>
 </table>
