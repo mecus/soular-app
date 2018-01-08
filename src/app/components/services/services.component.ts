@@ -14,7 +14,7 @@ export class ServicesComponent implements OnInit {
   constructor(private af:AngularFirestore, private wwdo:WWDOService, private _router: Router) { }
 
   goToService(id, name){
-    this._router.navigate(["/service/?", {id: id, service: name}]);
+    this._router.navigate(["/ss/service/?", {id: id, service: name}]);
   
   }
 

@@ -20,15 +20,48 @@ export class AuthService {
     this.headers = new HttpHeaders().set('Content-Type', 'application.json');
     this.users = db.collection('users');
   }
+  b64DecodeUnicode(str: string): string {
+    if (window
+        && "atob" in window
+        && "decodeURIComponent" in window) {
+        return decodeURIComponent(Array.prototype.map.call(atob(str), (c) => {
+            return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(""));
+    } else {
+        console.warn("b64DecodeUnicode requirements: window.atob and window.decodeURIComponent functions");
+        return null;
+    }
+  }
   authUserState(){
     return this.auth.authState;
   }
-  setUserIdToken(){
-    this.auth.idToken.subscribe(token => {
-      localStorage.setItem("idToken", token);
-      localStorage.setItem("flash", "userlog");
-    });
+  // setUserIdToken(){
+  //   this.auth.idToken.subscribe(token => {
+  //     localStorage.setItem("idToken", token);
+  //     localStorage.setItem("flash", "userlog");
+  //   });
+  // }
+  customClaimsToken(){
+      firebase.auth().currentUser.getIdToken()
+      .then((idToken) => {
+        const payload = JSON.parse(this.b64DecodeUnicode(idToken.split('.')[1]));
+        localStorage.setItem("idToken", idToken);
+        localStorage.setItem("flash", "userlog");
+        
+        // console.log("New Token: ", payload['privilege']);
+        // Confirm the user is an Admin.
+        if (payload['privilege'] === 'admin') {
+          localStorage.setItem('priv', "promiseLand181225");
+        }else{
+          localStorage.setItem('priv', "whoeverInwonderLand1900");
+        }
+      }).catch((error) => {
+        console.log(error);
+          
+      })
   }
+
+
   loginWithPassword(user){
     // let headers:any = new HttpHeaders().set('Content-Type', 'application.json');
     // return this._http.post(this.loginUrl, user, headers)
@@ -38,7 +71,7 @@ export class AuthService {
     this.auth.auth.signInWithEmailAndPassword(user.email, user.password)
     .then(res=>{
       console.log(res);
-      this.setUserIdToken();
+      this.customClaimsToken();
       this._router.navigate(["/"]);
     })
     .catch(err=> {
@@ -53,7 +86,7 @@ export class AuthService {
       this.auth.auth.signInWithCustomToken(user.token)
       .then(res=>{
         console.log(res);
-        this.setUserIdToken();
+        this.customClaimsToken();
         this._router.navigate(["/"]);
       })
       .catch(err=> {
@@ -62,7 +95,6 @@ export class AuthService {
     });
   }
   userLogout(){
-    localStorage.removeItem("idToken");
     return this.auth.auth.signOut();
   }
 

@@ -20,14 +20,14 @@ export class ListServicesComponent implements OnInit {
     if(confirmation){
       this.wwdo.deleteService(id).then(()=>{
         this.wwdo.removeServiceImage(image);
-        this._router.navigate(["/admin/dashboard/?", {display: "services"}]);
+        this._router.navigate(["../admin/dashboard/?", {display: "services"}]);
       }).catch(err=>{
         console.log(err);
       });
     }
   }
-  goToUpdate(sid){
-    this._router.navigate(["/admin/dashboard/?", {display: "update_service", id: sid}])
+  goToUpdate(service){
+    this._router.navigate(["/admin/services/edit/?", {name: service.service_name, id: service.id}])
   }
   ngOnInit() {
     this.services$ = this.wwdo.getServices().map(snapshot =>{

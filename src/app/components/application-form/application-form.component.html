@@ -13,6 +13,7 @@
               <label for="last_name">Last Name</label>
             </div>
           </div>
+
           <div class="row">
               <div class="input-field col s6">
                 <input formControlName="email"  id="email" type="email" class="validate">
@@ -22,6 +23,19 @@
                 <input formControlName="telephone" id="telephone" type="text" class="validate">
                 <label for="telehpone">Telephone</label>
               </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                  <span>Gender: </span>
+                    <span>
+                      <input formControlName="sex" value="Male" type="radio" id="male" />
+                      <label for="male">Male</label>
+                    </span>
+                    <span>
+                      <input formControlName="sex" value="Female" type="radio" id="female" />
+                      <label for="female">Female</label>
+                    </span>
+                </div>
             </div>
             <div formGroupName = "birthday" class="row birthday">
               <div class="input-field col s4">
@@ -126,7 +140,7 @@
               </div>
             </div>
           </div>
-          
+
           <!-- <div class="row">
               <div class="file-field input-field">
                 <div class="btn">

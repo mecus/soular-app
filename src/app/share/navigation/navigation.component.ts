@@ -11,15 +11,18 @@ declare let $:any;
 })
 export class NavigationComponent implements OnInit {
   currentUser;
+  privilege;
   dropDownMenu: boolean = false;
   flash;
   flashCounter:number = 0;
   constructor(private _router: Router, private authService: AuthService) { }
   goToDashboard(){
-    this._router.navigate(["/admin/dashboard/?", {display: "dashboard"}]);
+    this._router.navigate(["/admin/dashboard"]);
   }
   signOut(){
     this.authService.userLogout().then((ref)=> {
+      localStorage.removeItem("idToken");
+      localStorage.removeItem("priv");
       this.flash = {
         counter: this.flashCounter,
         timeout: "3000",
@@ -28,7 +31,7 @@ export class NavigationComponent implements OnInit {
         background: "rgba(177,43,4, 0.7)"
       }
       setTimeout(()=>{
-        this._router.navigate(["/login"]);
+        this._router.navigate(["/ss/login"]);
       }, 1000);
 
     },(err) => {
@@ -36,28 +39,28 @@ export class NavigationComponent implements OnInit {
     });
   }
   goToLoginForm(){
-    this._router.navigate(["/login"]);
+    this._router.navigate(["/ss/login"]);
   }
   routeNavigation(route: string){
     let nav = route.toUpperCase();
     switch(nav){
       case 'CAREER':
-        this._router.navigate(["/career"]);
+        this._router.navigate(["/ss/career"]);
         break;
       case 'SERVICES':
-        this._router.navigate(["/services"]);
+        this._router.navigate(["/ss/services"]);
         break;
       case 'ABOUT':
-        this._router.navigate(["/about"]);
+        this._router.navigate(["/ss/about"]);
         break;
       case 'CONTACT':
-        this._router.navigate(["/contact"]);
+        this._router.navigate(["/ss/contact"]);
         break;
       case 'NEWS':
-        this._router.navigate(["/news"]);
+        this._router.navigate(["/ss/news"]);
         break;
       case 'ACCOUNT':
-        this._router.navigate(["/my_account"]);
+        this._router.navigate(["/ss/my_account"]);
         break;
       default: 
         this._router.navigate(["/"]);
@@ -80,6 +83,7 @@ export class NavigationComponent implements OnInit {
     this.authService.authUserState()
     .subscribe(user => {
       this.currentUser = user;
+      this.privilege = localStorage.getItem('priv');
       console.log(user);
       setTimeout(()=> {
         if(localStorage.getItem("flash")){

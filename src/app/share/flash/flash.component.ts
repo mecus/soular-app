@@ -37,7 +37,7 @@ export class FlashComponent implements OnInit, OnChanges {
       backGround.style.transition = "0.3s";
       setTimeout(()=>{
         backGround.style.transition = "0.3s";
-        backGround.style.marginTop = "-40px";
+        backGround.style.marginTop = "-400px";
       }, this.notice.timeout);
     }
   }

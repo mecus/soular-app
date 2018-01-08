@@ -34,13 +34,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     let nav = route.toUpperCase();
     switch(nav){
       case 'CAREER':
-        this._router.navigate(["/career"]);
+        this._router.navigate(["/ss/career"]);
         break;
       case 'SERVICES':
-        this._router.navigate(["/services"]);
+        this._router.navigate(["/ss/services"]);
         break;
       case 'ABOUT':
-        this._router.navigate(["/about"]);
+        this._router.navigate(["/ss/about"]);
         break;
     }
 

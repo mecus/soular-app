@@ -1,0 +1,26 @@
+<div class="vertical-navigation">
+  <div class="side-bar">
+      <div class="nav-item">
+          <a class=" waves-effect waves-ripple" routerLink="/admin/dashboard" id="dashboard" ><i class="material-icons left">dashboard</i>Dashboard</a>
+      </div>
+      <div class="nav-item">
+        <a class=" waves-effect waves-ripple" (click)="customerOpen()" >Services</a>
+
+      </div>
+      <div id="customer-actions" class="customer-actions">
+          <li>
+              <a  class=" waves-effect waves-ripple" routerLink="/admin/services" id="services"> <i class="material-icons left">perm_data_setting</i> Services</a>
+          </li>
+          <li>
+              <a  class=" waves-effect waves-ripple" routerLink="/admin/services/new" id="services"> <i class="material-icons left">perm_data_setting</i> New Services</a>
+          </li>
+      </div>
+      <div class="nav-list">
+          <a class=" waves-effect waves-ripple" routerLink="/admin/applications" id="applications"><i class="material-icons left">touch_app</i> Applicants </a>
+        </div>
+        <div class="nav-list">
+          <a class=" waves-effect waves-ripple" routerLink="/admin/users" id="users" ><i class="material-icons left">group</i>Users</a>
+      </div>
+    </div>
+</div>
+

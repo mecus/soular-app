@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { FormBuilder, FormControl, FormGroup, Validator } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { tService } from '../../models/service';
 import { WWDOService } from '../../services/wwdo.service';
 import * as firebase from 'firebase';
@@ -18,7 +18,7 @@ export class UpdateServiceComponent implements OnInit {
   progress;
   upImage: string;
   constructor(private af: AngularFirestore, private FB: FormBuilder, private wwdo:WWDOService,
-  private _router: Router) {
+  private _router: Router, private route: ActivatedRoute) {
     this.formFunction()
   }
 
@@ -121,21 +121,27 @@ export class UpdateServiceComponent implements OnInit {
     });
   }
   ngOnInit() {
-    // console.log(this.updateId);
-    this.wwdo.getOneService(this.updateId).subscribe((service: tService)=> {
-      // console.log(service);
-      if(service){
-        this.upImage = service.service_image;
-        this.newServiceForm.patchValue({
-          service_name: service.service_name,
-          short_description: service.short_description,
-          long_description: service.long_description,
-          service_image: service.service_image,
-          image_name: service.image_name || null
-          // publish: service.publish
-        });
-      }
-    });
+    this.route.paramMap.subscribe((param)=> {
+      let id = param.get('id');
+      this.wwdo.getOneService(id).subscribe((service: tService)=> {
+        // console.log(service);
+        if(service){
+          this.upImage = service.service_image;
+          this.newServiceForm.patchValue({
+            service_name: service.service_name,
+            short_description: service.short_description,
+            long_description: service.long_description,
+            service_image: service.service_image,
+            image_name: service.image_name || null
+            // publish: service.publish
+          });
+        }
+      }, ((err) => {
+        console.log(err);
+      }));
+    }, ((err) => {
+      console.log(err);
+    }));
   }
 
 }

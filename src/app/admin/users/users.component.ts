@@ -42,6 +42,9 @@ export class UsersComponent implements OnInit {
     });
     this.flashCouter ++;
   }
+  back(){
+    window.history.back();
+  }
   deleteUser(user){
     console.log(user);
   }
@@ -58,5 +61,8 @@ export class UsersComponent implements OnInit {
   }
   ngOnInit() {
     this.getAllUsers();
+    $(document).ready(function() {
+      $('select').material_select();
+    });
   }
 }

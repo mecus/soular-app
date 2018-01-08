@@ -1,0 +1,93 @@
+@import "../../../variables";
+.admin-nav{
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    padding: 0px 20px;
+    background-color: darken($primary-color-dark , 10%);
+    .nav{
+        height: 60px;
+        background-color: darken($primary-color-dark , 10%);
+        .nav-wrapper{
+            display: flex;
+            justify-content: space-between;
+            height: 60px;
+            .brand-logo{
+                height: 60px;
+                a{
+                    line-height: 60px;
+                    font-size: 2em;
+                }
+            }
+            .menu-item{
+                padding: 10px 0px;
+            }
+
+        }
+    }
+}
+
+
+/* Vertical Navigation Start Here */
+.vertical-navigation{
+    position: fixed;
+    width: 15em;
+    height: 100vh;
+    background-color: darken($primary-color-dark , 0%);
+    z-index: 100;
+}
+// .vertical-navigation .side-nav {
+//     position: fixed;
+//     display: flex;
+//     flex-direction: column;
+//     height: 100vh;
+//     background-color: #ffffff;
+//     width: 15em;
+//     box-shadow: 2px 5px lightgray;
+//     z-index: 100;
+// }
+// .vertical-navigation .side-nav a{
+//     /* width: 100%; */
+//     font-size: 1.2em;
+//     line-height: 2em;
+//     margin: 0px;
+//     padding: 0px;
+//     padding-left: 20px;
+//     color: grey;
+   
+// }
+// .vertical-navigation .side-nav .nav-item {
+//     width: 15em;
+//     /* height: 2em; */
+//     background-color: aliceblue;
+//     margin: 1px 0px;
+//     display: flex;
+//     justify-content: space-between;
+// }
+/* .vertical-navigation .side-nav .nav-item mat-icon{
+
+} */
+// .customer-actions{
+//     height: 0;
+//     transition: .3s;
+// }
+// .customer-actions li, .customer-actions a{
+//     text-decoration: none;
+//     list-style: none;
+//     margin: 0px !important;
+//     padding: 0px !important;
+    
+// }
+// .customer-actions li a{
+//     font-size: 1em !important;
+//     padding-left: 2em !important;
+//     /* width: 15em; */
+// }
+// mat-icon#openIcon2{
+//     display: none;
+//     transition: 1s;
+// }
+// .customer-actions li:hover, .customer-actions li a:hover{
+//     background-color: lightgray;
+//     /* padding-left: 2.1em !important; */
+// }

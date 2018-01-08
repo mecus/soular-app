@@ -1,3 +1,13 @@
+<div class="navigate">
+    <span class="item1">
+        <p>Services</p>
+        <!-- <i class="material-icons">arrow_back</i> -->
+    </span>
+    <span class="item2">
+        <a routerLink="/admin/services/new" class="btn-floating btn-small waves-effect waves-light green"><i class="material-icons">add</i></a>
+    </span>
+ </div>
+
 <div class="admin-service-container container-no">
     <!-- <button class="btn" (click)="addData()">Add</button> -->
   <div *ngFor="let service of services$ | async" class="admin-service-item card">
@@ -7,7 +17,7 @@
     <div class="content">
         <h1>{{service.service_name}}</h1>
         <div class="buttons">
-            <a class="" (click)="goToUpdate(service.id)">
+            <a class="" (click)="goToUpdate(service)">
                 <i class="material-icons">edit</i> Edit
             </a>
             <span>|</span>

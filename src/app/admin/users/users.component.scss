@@ -1,6 +1,33 @@
+@import "../../../variables";
 .flash-holder{
     position: relative;
     top: 0;
+}
+.navigate{
+    display: flex;
+    justify-content: space-between;
+    .item1{
+        margin: 10px;
+        p{
+            font-family: 'Open Sans Bold', sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            color: $primary-color-dark;
+            opacity: 0.8;
+            // font-weight: bold;
+        }
+    }
+
+}
+table{
+    width: 800px;
+    tbody{
+        tr td{
+            font-size: 0.9rem;
+            margin: 0px;
+            padding: 5px;
+        }
+    }
 }
 
 #setBtn{
@@ -20,6 +47,7 @@
     width: 100%;
     height: 100vh;
     background-color: rgba(0,0,0, 0.9);
+    z-index: 1000;
     .input-wrapper{
         position: relative;
         top: 50%;

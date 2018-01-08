@@ -1,5 +1,26 @@
 @import "../../../variables";
+.navigate{
+    display: flex;
+    justify-content: space-between;
+    .item1{
+        margin: 10px;
+        p{
+            font-family: 'Open Sans Bold', sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            color: $primary-color-dark;
+            opacity: 0.8;
+            // font-weight: bold;
+        }
+    }
+    .item2{
+        .btn-floating{
+            background-color: lighten($primary-color-dark, 10%) !important;
+        }
+    }
+}
 .admin-service-container{
+    width: 800px;
     display: flex;
     // align-items: center;
     justify-content: space-between;

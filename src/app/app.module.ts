@@ -21,13 +21,16 @@ import { MainInterceptor } from './services/main-interceptor';
 import { HomeModule } from './home/home.module';
 import { ComponentModule } from './components/component.module';
 import { AppService } from './services/app-service';
+import { AdminRouter } from './admin/admin.router';
+import { RootRouter } from './root.router';
+import { IndexComponent } from './index/index.component';
 // declare let firebase: any;
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, IndexComponent],
   imports: [
-    BrowserModule, AdminModule, HttpClientModule,
-    RouterModule, AppRouterModule, AuthenticationModule,
+    BrowserModule, AdminModule, HttpClientModule, AdminRouter,
+    RouterModule, RootRouter, AppRouterModule, AuthenticationModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule, AngularFirestoreModule,
     ShareModule, HomeModule, ComponentModule

@@ -1,0 +1,65 @@
+// body {visibility:hidden;}
+@import "../../../variables";
+.applicant-container{
+    margin-bottom: 50px;
+    width: 800px;
+}
+.print {visibility:visible;}
+.control{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 5px;
+}
+.personal-content{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 5px;
+    .fields{
+        font-size: 1.1rem;
+        color: $primary-color-dark;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        margin: 5px;
+        span{
+            flex: 1;
+        }
+        span#field-val{
+            font-size: 1rem;
+            font-weight: normal;
+            color: grey;
+        }
+    }
+}
+.address-content{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 5px;
+    .fields{
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: $primary-color-dark;
+        display: flex;
+        justify-content: space-between;
+        margin: 3px;
+        span{
+            flex: 1;
+            font-size: 1rem;
+        }
+        span#field-val{
+            font-size: 1rem;
+            font-weight: normal;
+            color: grey;
+            a{
+                background-color: lighten($primary-color-dark,  10%);
+                &:hover{
+                    color: lighten($primary-color-dark,  30%);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

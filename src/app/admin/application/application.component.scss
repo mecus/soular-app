@@ -1,0 +1,26 @@
+@import "../../../variables";
+.navigate{
+    display: flex;
+    justify-content: space-between;
+    .item1{
+        margin: 10px;
+        p{
+            font-family: 'Open Sans Bold', sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            color: $primary-color-dark;
+            opacity: 0.8;
+            // font-weight: bold;
+        }
+    }
+}
+table{
+    width: 800px;
+    tbody{
+        tr td{
+            font-size: 0.9rem;
+            margin: 0px;
+            padding: 5px;
+        }
+    }
+}

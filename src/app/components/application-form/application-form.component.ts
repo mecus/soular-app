@@ -59,6 +59,7 @@ export class ApplicationFormComponent implements OnInit, OnDestroy {
       siaNumber: [""],
       ageLimit: [""],
       elegibility: [""],
+      sex: [""],
       birthday: FB.group({
         day: "",
         month: "",
@@ -156,7 +157,8 @@ export class ApplicationFormComponent implements OnInit, OnDestroy {
             day: applicant.birthday.day,
             month: applicant.birthday.month,
             year: applicant.birthday.year
-          }
+          },
+          sex: applicant.sex
         }
         this.progress = "Saving your data to the database...";
         this.appService.sendApplication(application)

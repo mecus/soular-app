@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Params, Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,13 +9,14 @@ import { Params, Router, ActivatedRoute } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   dashboard:boolean =false;
-  updateid;
+  updateid; applicandId;
   today = Date.now();
   loading: boolean = false;
   services:boolean = false; newService: boolean = false;
   updateService: boolean = false; application:boolean = false;
-  users:boolean = false;
-  constructor(private route:ActivatedRoute, private _router: Router) {
+  users:boolean = false; applicant: boolean = false;
+  currentUser;
+  constructor(private route:ActivatedRoute, private authService:AuthService, private _router: Router) {
 
    }
    loadItem(e){
@@ -27,9 +29,10 @@ export class DashboardComponent implements OnInit {
     this.updateService = false;
     this.application = false;
     this.users = false;
+    this.applicant = false;
     this.loading = true;
     let service = e.target.id;
-    this._router.navigate(["/admin/dashboard/?", {display: service}]);
+    this._router.navigate(["../admin/dashboard/?", {display: service}]);
     setTimeout(()=>{
       this.navigationControl();
       this.loading = false;
@@ -64,6 +67,12 @@ export class DashboardComponent implements OnInit {
           break;
         case "applications": 
           this.application = true;
+          this.applicant = false;
+          break;
+        case "applicant":
+          this.applicant = true;
+          this.applicandId = id;
+          this.application = false;
           break;
         case "users":
           this.users = true;
@@ -72,6 +81,11 @@ export class DashboardComponent implements OnInit {
     });
    }
   ngOnInit() {
+    this.authService.authUserState().subscribe((user) => {
+      this.currentUser = user;
+    },(err) => {
+      console.log(err);
+    });
     setTimeout(()=>{
       this.navigationControl();
     }, 100);

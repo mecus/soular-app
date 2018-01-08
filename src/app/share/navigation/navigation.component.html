@@ -35,7 +35,7 @@
                   <span><i class="material-icons">account_circle</i></span>
                   <span><a (click)="[routeNavigation('account'), closeMenu()]">Account</a></span>
               </span>
-              <span class="link-line">
+              <span *ngIf="privilege && privilege === 'promiseLand181225'" class="link-line">
                 <span><i class="material-icons">dashboard</i></span>
                 <span><a (click)="[goToDashboard(), closeMenu()]">Dashboard</a></span>
               </span>

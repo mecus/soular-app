@@ -1,21 +1,37 @@
-<p>Applicants</p>
+
+<div class="navigate">
+    <span class="item1">
+        <p>Applicants</p>
+      <!-- <i class="material-icons">arrow_back</i> -->
+    </span>
+    <span class="item2">
+      <select name="" id="">
+        <option value="" disabled>Sort by</option>
+        <option value="user">Shortlisted</option>
+        <option value="admin">This week</option>
+      </select>
+    </span>
+  </div>
 <table>
   <thead>
-    <!-- <tr>
+    <tr>
         <th>Name</th>
-        <th>Item Name</th>
-        <th>Item Price</th>
-    </tr> -->
+        <th>Email</th>
+        <th>Age</th>
+        <th>Phone</th>
+        <th>Sia Number</th>
+        <th>Submited</th>
+    </tr>
   </thead>
 
   <tbody>
     <tr *ngFor="let applicant of applications$ | async">
-      <td>{{applicant.firstName}}</td>
-      <td>{{applicant.lastName}}</td>
+      <td ><a (click)="viewApplicant(applicant)">{{applicant.firstName}} {{applicant.lastName}}</a></td>
       <td>{{applicant.email}}</td>
+      <td>{{applicant.age}} yrs</td>
       <td>{{applicant.telephone}}</td>
       <td>{{applicant.siaNumber}}</td>
-      <td>{{applicant.uid}}</td>
+      <td>{{applicant.submitedOn | date}}</td>
       <!-- <td>{{applicant.firstName}}</td>
       <td>{{applicant.lastName}}</td>
       <td>{{applicant.id}}</td> -->
